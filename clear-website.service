@@ -1,0 +1,16 @@
+[Unit]
+Description=CLEAR Website Server
+After=network.target
+
+[Service]
+Type=simple
+User=issaka
+WorkingDirectory=/home/issaka/clear-website
+ExecStart=/usr/bin/python3 /home/issaka/clear-website/server.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/issaka/clear-website/server.log
+StandardError=append:/home/issaka/clear-website/server.log
+
+[Install]
+WantedBy=multi-user.target
