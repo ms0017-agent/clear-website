@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3/client/topojson.min.js"></script>
 </head>
 <body>
     <nav class="navbar" aria-label="Main navigation">
@@ -22,6 +25,7 @@
             <ul class="nav-menu">
                 <li><a href="about.html">About</a></li>
                 <li><a href="#pillars">Pillars</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#members">Members</a></li>
                 <li><a href="#contact" class="btn-primary">Get Involved</a></li>
@@ -217,6 +221,88 @@
                     <em>Join us. CLEAR welcomes researchers, organizations, and communities 
                     committed to language equity.</em>
                 </p>
+            </div>
+        </section>
+
+        <section id="leaderboard" class="section leaderboard">
+            <div class="container">
+                <h2 class="section-title">Multilingual AI Leaderboard</h2>
+                <p class="section-subtitle">Tracking AI model performance across language families and regions</p>
+                
+                <div class="leaderboard-controls">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="all">All Languages</button>
+                        <button class="filter-btn" data-filter="african">African</button>
+                        <button class="filter-btn" data-filter="asian">Asian</button>
+                        <button class="filter-btn" data-filter="european">European</button>
+                    </div>
+                </div>
+
+                <div class="leaderboard-grid">
+                    <div class="leaderboard-chart">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="leaderboard-map">
+                        <div id="worldMap"></div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-table-container">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Overall</th>
+                                <th>African</th>
+                                <th>Asian</th>
+                                <th>European</th>
+                                <th>Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Gemma-3-27B</strong></td>
+                                <td class="score-high">87.3</td>
+                                <td>82.1</td>
+                                <td>85.7</td>
+                                <td>94.2</td>
+                                <td class="trend-up">↑ +3.2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude-Opus-4.7</strong></td>
+                                <td class="score-high">85.9</td>
+                                <td>79.4</td>
+                                <td>83.2</td>
+                                <td>95.1</td>
+                                <td class="trend-up">↑ +2.1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GPT-4.5</strong></td>
+                                <td class="score-high">84.6</td>
+                                <td>77.8</td>
+                                <td>81.9</td>
+                                <td>94.8</td>
+                                <td class="trend-stable">→ 0.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MansaLLM-30B</strong></td>
+                                <td class="score-medium">76.2</td>
+                                <td>88.4</td>
+                                <td>71.3</td>
+                                <td>68.9</td>
+                                <td class="trend-up">↑ +5.7</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Llama-3.1-70B</strong></td>
+                                <td class="score-medium">73.8</td>
+                                <td>65.2</td>
+                                <td>70.4</td>
+                                <td>85.6</td>
+                                <td class="trend-up">↑ +1.8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
